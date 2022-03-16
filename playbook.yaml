@@ -1,0 +1,19 @@
+---
+- name: Update klipper config
+  hosts: ender2pro
+  remote_user: root
+
+  tasks:
+  - name: Copy printer.cfg to printer
+    ansible.builtin.copy:
+      src: ./printer.cfg
+      dest: /home/pi/klipper_config/printer.cfg
+      owner: pi
+      group: pi
+    register: printer_config
+
+  - name: Klipper Service
+    service:
+      name: klipper
+      state: restarted
+    when: printer_config.changed
