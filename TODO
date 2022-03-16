@@ -1,0 +1,14 @@
+- [x] order dimmable mosfet
+- [ ] Add 'cancel' macro to menu
+- [ ] 'unload fillament to menu
+- [ ] 'load filament to menu
+- [x] Camera support
+- [ ] run at 200% speed
+- [ ] main fan turn on/off
+- [ ] board fan turn on/off
+- [ ] turn LEDs on/off
+- [ ] blink leds when print is done
+- [ ] mount pi to case
+- [ ] Add runout sensor
+- [ ] [pause_resume]
+- [ ] CANCEL_PRINT macro

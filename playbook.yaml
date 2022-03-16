@@ -12,8 +12,24 @@
       group: pi
     register: printer_config
 
+  - name: Copy webcam.txt to printer
+    ansible.builtin.copy:
+      src: ./webcam.txt
+      dest: /home/pi/klipper_config/webcam.txt
+      owner: pi
+      group: pi
+    register: webcam_config
+
   - name: Klipper Service
     service:
       name: klipper
       state: restarted
-    when: printer_config.changed
+    when: 
+    - printer_config.changed
+
+  - name: Webcamd Service
+    service:
+      name: webcamd
+      state: restarted
+    when: 
+    - webcam_config.changed
