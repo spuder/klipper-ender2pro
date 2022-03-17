@@ -12,3 +12,7 @@
 - [ ] Add runout sensor
 - [x] [pause_resume]
 - [x] CANCEL_PRINT macro
+- [ ] Physical pause print button
+- [ ] Physical unload fillament button
+- [ ] Fillament run out sensor
+- [ ] Fillament stuck sensor

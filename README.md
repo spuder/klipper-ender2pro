@@ -6,7 +6,7 @@ My clipper configuration for the ender 2 pro
 ## Hardware
 
 - Ender 2 Pro (Purchased December 2021)
-- Creality Silent board v4.2.2
+- Creality Silent board v4.2.3
 
 ## Features
 
@@ -34,7 +34,7 @@ make menuconfig
 # Disable usb for communication
 make
 # Then copy the .bin file off the raspberry pi and put it on a fresh SD Card.
-# The .bin file must be named something unique (and it can't be firmware.bin)
+# The .bin file must be named something unique (and it can't be firmware.bin, or the previous file name)
 ````
 
 ### Resources
@@ -49,6 +49,13 @@ make
 
 
 ## Ansible
+
+klipper config file is located at `/home/pi/klipper_config/printer.cfg`
+This repo contains an ansible playbook that will copy the local printer.cfg to the printer and restart the klipper service if it changes. 
+
+To use
+1. Modify `inventory` to point at your raspberry pi
+2. Run the following ansible commands
 
 ```
 ansible-playbook --check playbook.yaml
