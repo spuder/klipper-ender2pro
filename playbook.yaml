@@ -1,15 +1,4 @@
 ---
-# - name: Get list of macros so we can purge old ones
-#   hosts: localhost
-#   connection: local
-#   tasks:
-#   - name: Get files
-#     ansible.builtin.command: "ls ./macros"
-#     register: macros
-#   # - name: Printout builtin locally
-#   #   ansible.builtin.debug:
-#   #     msg: "{{ macros.stdout }}"
-
 - name: Update klipper config
   hosts: ender2pro
   remote_user: root
@@ -43,42 +32,6 @@
       path: /home/pi/klipper_config/macros
       state: directory
       force: yes
-
-  # - name: Get remote macros so we can find any that need to be cleaned up
-  #   ansible.builtin.command: "ls /home/pi/klipper_config/macros"
-  #   register: macros_remote
-    
-  # - name: Print macros_local
-  #   ansible.builtin.debug:
-  #     msg: "{{ hostvars['localhost']['macros'].stdout_lines }}"
-
-  # - name: Printout macros_remote
-  #   ansible.builtin.debug:
-  #     msg: "{{ macros_remote.stdout_lines }}"
-
-  # - name: Debug
-  #   ansible.builtin.debug:
-  #     msg: "{{ macros_remote.stdout_lines | reject('in', hostvars['localhost']['macros'].stdout_lines) }}"
-
-  # - name: Remove macros from remote host that aren't local (poor mans sync)
-  #   ansible.builtin.file:
-  #     path: "/home/pi/klipper_config/macros/{{ item }}"
-  #     state: absent
-  #     loop: "{{ macros_remote.stdout_lines | reject('in', hostvars['localhost']['macros'].stdout_lines) }}"
-  #     # force: yes
-  #     # with_items: "{{ macros_remote.stdout_lines | reject('in', hostvars['localhost']['macros'].stdout_lines) }}"
-  #     # when: "{{ macros_remote.stdout_lines|length > 0 }}"
-  #     # with_items: "{{ macros_remote.stdout_lines }}"
-  #     # when: item not in hostvars['localhost']['macros'].stdout_lines &&  "{{ macros_remote.rc == 0 }}"
-
-  # #TODO: Removing a file from macros/ dir will require manual cleanup
-  # - name: Copy macros.cfg to macros folder
-  #   ansible.builtin.copy:
-  #     src: ./macros/
-  #     dest: /home/pi/klipper_config/macros/
-  #     owner: pi
-  #     group: pi  
-  #   register: macros_config
 
   - name: Synchronize macros folder
     ansible.posix.synchronize:
