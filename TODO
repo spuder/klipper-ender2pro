@@ -3,17 +3,21 @@
 - [ ] 'unload fillament to menu
 - [ ] 'load filament to menu
 - [x] Camera support
-- [ ] run at 200% speed
-- [ ] main fan turn on/off
+- [x] run at 200% speed
+- [x] main fan turn on/off
 - [x] board fan turn on/off
 - [ ] turn LEDs on/off
 - [ ] blink leds when print is done
 - [ ] mount pi to case
-- [ ] Add runout sensor
+- [x] Add runout sensor
 - [x] [pause_resume]
 - [x] CANCEL_PRINT macro
 - [ ] Physical pause print button
 - [ ] Physical unload fillament button
-- [ ] Fillament run out sensor
+- [x] Fillament run out sensor
 - [ ] Fillament stuck sensor
 - [ ] Bed mesh
+- [ ] Bed mesh on new bed
+- [ ] Accelerometer
+- [ ] Linear advance
+- [ ] camera mount
