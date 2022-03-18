@@ -16,15 +16,8 @@ A BLTouch is installed.
 
 **Warning**: There are 2 ways to install the BLTouch on a Creality silent board. This assumes using a single 5 pin header instead of separate 2 pin and 3 pin headers. If you don't know the difference, see [timestamp 7:24 in this youtube video by teaching tech](https://youtu.be/eF060dBEnfs?t=444)
 
-### Config
 
-Based on the following configs
-
-- [printer-creality-ender3-v2-2020.cfg](https://github.com/Klipper3d/klipper/blob/master/config/printer-creality-ender3-v2-2020.cfg)
-- [printer-creality-ender2-2017.cfg](https://github.com/Klipper3d/klipper/blob/master/config/printer-creality-ender2-2017.cfg)
-
-
-## Fillament runout sensor
+##3 Fillament runout sensor
 
 The following part plugs directly into the `Pre-srt Port` on creality board 4.2.2 / 4.2.3
 
@@ -35,9 +28,11 @@ The following part plugs directly into the `Pre-srt Port` on creality board 4.2.
 
 - Part: https://www.amazon.com/gp/product/B08QJDP36R/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
 
-### klipper config
+#### klipper runout sensor config
 
-The following will just work on klipper, assuming you already have a 'pause' and 'resume' macro defined
+The following will just work on klipper, assuming you already have a 'pause' and 'resume' macro defined. 
+
+As soon as the fillament runs out, it will pause the print. To resume, click the 'resume' macro in the gui
 
 ```
 [filament_switch_sensor RunoutSensor]
