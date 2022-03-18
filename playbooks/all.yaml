@@ -1,0 +1,13 @@
+---
+- name: all
+  hosts: ender2pro
+  remote_user: root
+  gather_facts: no
+
+
+- name: klipper
+  import_playbook: ./klipper_config.yaml
+- name: moonraker
+  import_playbook: ./moonraker_config.yaml
+- name: webcam
+  import_playbook: ./webcam_config.yaml

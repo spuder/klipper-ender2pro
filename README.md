@@ -101,6 +101,8 @@ ansible-playbook -i inventory playbook.yaml -c paramiko --ask-pass
 ```
 
 ```
-make deploy
-# `make deploy` is an alias for `ansible-playbook -i inventory playbook.yaml -c paramiko --ask-pass`
+make klipper    # run just the klipper playbook
+make klipper    # run just the moonraker playbook
+make klipper    # run just the webcam playbook
+make all        # run all playbooks
 ```

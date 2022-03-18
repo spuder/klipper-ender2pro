@@ -1,0 +1,45 @@
+---
+- name: Klipper Config
+  hosts: ender2pro
+  remote_user: root
+  gather_facts: no
+
+  tasks:
+  - name: Copy printer.cfg to printer
+    ansible.builtin.copy:
+      src: ../printer.cfg
+      dest: /home/pi/klipper_config/printer.cfg
+      owner: pi
+      group: pi
+    register: printer_config
+
+  - name: Create macros folder
+    ansible.builtin.file:
+      path: /home/pi/klipper_config/macros
+      state: directory
+      force: yes
+
+  - name: Synchronize macros folder
+    ansible.posix.synchronize:
+      src: ../macros/
+      dest: /home/pi/klipper_config/macros/
+      # delete: yes
+      rsync_opts:
+        - --include=*.cfg
+        - --delete-excluded
+        - --exclude=*tmp*
+    register: macros_config
+
+  # Workaround for rsync deleting all directories
+  # - name: Create temp folder
+  #   ansible.builtin.file:
+  #     path: /home/pi/klipper_config/macros/.~tmp~
+  #     state: directory
+  #     force: yes
+
+  - name: Klipper Service
+    service:
+      name: klipper
+      state: restarted
+    when: 
+    - printer_config.changed or macros_config.changed

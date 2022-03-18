@@ -1,0 +1,21 @@
+---
+- name: Webcam Config
+  hosts: ender2pro
+  remote_user: root
+  gather_facts: no
+
+
+  tasks:
+  - name: Copy webcam.txt to printer
+    ansible.builtin.copy:
+      src: ../webcam.txt
+      dest: /home/pi/klipper_config/webcam.txt
+      owner: pi
+      group: pi
+    register: webcam_config
+  - name: Webcamd Service
+    service:
+      name: webcamd
+      state: restarted
+    when: 
+    - webcam_config.changed

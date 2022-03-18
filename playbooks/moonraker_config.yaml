@@ -1,0 +1,21 @@
+---
+- name: Klipper Config
+  hosts: ender2pro
+  remote_user: root
+  gather_facts: no
+
+  tasks:
+  - name: Moonraker config
+    ansible.builtin.copy:
+      src: ../moonraker.conf
+      dest: /home/pi/klipper_config/moonraker.conf
+      owner: pi
+      group: pi
+    register: moonraker_config
+
+  - name: Mookraker Service
+    service:
+      name: mookraker
+      state: restarted
+    when:
+    - moonraker_config.changed
