@@ -39,9 +39,10 @@
       dest: /home/pi/klipper_config/macros/
       delete: yes
       rsync_opts:
-       - --delete
-       - --delete-excluded
-       - --include=*.cfg
+        - --include=*.cfg
+        - --delete-excluded
+      #  - --delete
+      #  - --delete-excluded
     register: macros_config
 
   - name: Klipper Service
