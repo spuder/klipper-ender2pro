@@ -24,6 +24,37 @@ Based on the following configs
 - [printer-creality-ender2-2017.cfg](https://github.com/Klipper3d/klipper/blob/master/config/printer-creality-ender2-2017.cfg)
 
 
+## Fillament runout sensor
+
+The following part plugs directly into the `Pre-srt Port` on creality board 4.2.2 / 4.2.3
+
+![](https://m.media-amazon.com/images/I/6173cXfQq1L._SL1500_.jpg)
+
+
+![](https://www.th3dstudio.com/wp-content/uploads/2020/11/v427_blurcpu-800x800.jpg)
+
+- Part: https://www.amazon.com/gp/product/B08QJDP36R/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
+
+### klipper config
+
+The following will just work on klipper, assuming you already have a 'pause' and 'resume' macro defined
+
+```
+[filament_switch_sensor RunoutSensor]
+pause_on_runout: True
+switch_pin: !PA4
+```
+
+If you wish to override the runout sensor with your own macro, you can specify it like so
+```
+[filament_switch_sensor RunoutSensor]
+pause_on_runout: True
+switch_pin: !PA4
+runout_gcode: PAUSE
+insert_gcode: RESUME
+```
+
+
 ### Setup
 
 The following settings are for a Creality Silent board v4.2.2
