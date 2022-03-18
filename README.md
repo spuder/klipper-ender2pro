@@ -101,8 +101,9 @@ ansible-playbook -i inventory playbook.yaml -c paramiko --ask-pass
 ```
 
 ```
-make klipper    # run just the klipper playbook
-make klipper    # run just the moonraker playbook
-make klipper    # run just the webcam playbook
+make klipper    # run just the klipper playbook (default)
+make moonraker  # run just the moonraker playbook
+make webcam     # run just the webcam playbook
 make all        # run all playbooks
+make            # runs default (in this case klipper)
 ```
