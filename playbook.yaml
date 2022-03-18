@@ -2,6 +2,7 @@
 - name: Update klipper config
   hosts: ender2pro
   remote_user: root
+  gather_facts: no
 
   tasks:
   - name: Copy printer.cfg to printer
@@ -20,12 +21,20 @@
       group: pi
     register: webcam_config
 
+  - name: Copy macros.cfg to printer
+    ansible.builtin.copy:
+      src: ./macros.cfg
+      dest: /home/pi/klipper_config/macros.cfg
+      owner: pi
+      group: pi
+    register: macros_config
+
   - name: Klipper Service
     service:
       name: klipper
       state: restarted
     when: 
-    - printer_config.changed
+    - printer_config.changed or macros_config.changed
 
   - name: Webcamd Service
     service:

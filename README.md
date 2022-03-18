@@ -39,6 +39,9 @@ make
 
 ### Resources
 
+- Pinout: https://docs.google.com/spreadsheets/d/1DYhh9fwLnvZzuNvMoBen9Dl68KN-4TWkbO94lJ4iwe4/edit
+
+
 - https://www.youtube.com/watch?v=MaUU8stsZPo
 - https://www.youtube.com/watch?v=ABsdnkP4iwQ
 - 4.2.7 pinout https://all3dp.com/2/klipper-ender-3-v2/
@@ -55,9 +58,15 @@ This repo contains an ansible playbook that will copy the local printer.cfg to t
 
 To use
 1. Modify `inventory` to point at your raspberry pi
-2. Run the following ansible commands
+2. Run the following ansible commands (Or use the make shortcuts)
+
 
 ```
 ansible-playbook --check playbook.yaml
 ansible-playbook -i inventory playbook.yaml -c paramiko --ask-pass
+```
+
+```
+make deploy
+# `make deploy` is an alias for `ansible-playbook -i inventory playbook.yaml -c paramiko --ask-pass`
 ```
