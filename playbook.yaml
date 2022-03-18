@@ -37,13 +37,19 @@
     ansible.posix.synchronize:
       src: macros/
       dest: /home/pi/klipper_config/macros/
-      delete: yes
+      # delete: yes
       rsync_opts:
         - --include=*.cfg
         - --delete-excluded
-      #  - --delete
-      #  - --delete-excluded
     register: macros_config
+
+  - name: Moonraker config
+    ansible.builtin.copy:
+      src: ./moonraker.conf
+      dest: /home/pi/klipper_config/moonraker.conf
+      owner: pi
+      group: pi
+    register: moonraker_config
 
   - name: Klipper Service
     service:
@@ -58,3 +64,10 @@
       state: restarted
     when: 
     - webcam_config.changed
+
+  - name: Mookraker Service
+    service:
+      name: mookraker
+      state: restarted
+    when:
+    - moonraker_config.changed
