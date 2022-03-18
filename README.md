@@ -76,6 +76,14 @@ make
 - Install on Ender 3 V2 https://www.youtube.com/watch?v=gfZ9Lbyh8qU
 - Klipper Support https://github.com/spuder/klipper/pull/1/files
 
+## Extruder Calibration
+
+- https://3dprintbeginner.com/extruder-calibration-guide/
+
+## Flow Calibration
+
+- https://3dprintbeginner.com/flow-rate-calibration/
+
 
 ## Ansible
 
