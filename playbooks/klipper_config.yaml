@@ -37,6 +37,15 @@
   #     state: directory
   #     force: yes
 
+  # https://github.com/th33xitus/kiauh/blob/e8c0b3cf39d44a61ed6729bde04e3946e3a21f90/docs/gcode_shell_command.md
+  - name: Add gcode_shell_command.py
+    ansible.builtin.copy:
+      src: ../extras/gcode_shell_command.py
+      dest: /home/pi/klipper/klippy/extras/gcode_shell_command.py
+      owner: pi
+      group: pi
+
+
   - name: Klipper Service
     service:
       name: klipper
