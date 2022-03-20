@@ -8,7 +8,9 @@ My clipper configuration for the ender 2 pro
 - Ender 2 Pro (Purchased December 2021)
 - Creality Silent board v4.2.3
 
-## Features
+## Tuning
+
+https://teachingtechyt.github.io/calibration.html
 
 ### BLTOUCH
 

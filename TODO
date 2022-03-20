@@ -6,8 +6,8 @@
 - [x] run at 200% speed
 - [x] main fan turn on/off
 - [x] board fan turn on/off
-- [ ] turn LEDs on/off
-- [ ] blink leds when print is done
+- [x] turn LEDs on/off
+- [-] blink leds when print is done
 - [ ] mount pi to case
 - [x] Add runout sensor
 - [x] [pause_resume]
@@ -16,14 +16,14 @@
 - [ ] Physical unload fillament button
 - [x] Fillament run out sensor
 - [ ] Fillament stuck sensor
-- [ ] Bed mesh
-- [ ] Bed mesh on new bed
+- [x] Bed mesh
+- [x] Bed mesh on new bed
 - [ ] Accelerometer
 - [ ] Linear advance
 - [ ] camera mount
 - [x] If motors are active, turn on leds
 - [ ] Raspbery pi HAT for mosfets
-- [ ] Turn off LED / Motors after idle for x minutes
+- [x] Turn off LED / Motors after idle for x minutes
 - [x] Print klipper calibration cube
 - [ ] Estep calibration https://youtu.be/rp3r921DBGI
 - [ ] flow calibration https://3dprintbeginner.com/flow-rate-calibration/
@@ -31,3 +31,6 @@
 - [ ] Hidden macros
 - [ ] Bed mesh macro
 - [ ] Bed mesh save profiles for PEI and PETG
+- [ ] 3d print accelerometer holder
+- [ ] Raspberry pi no USB cable (serial internal)
+- [ ] fillament run out sensor mount
