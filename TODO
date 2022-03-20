@@ -29,3 +29,5 @@
 - [ ] flow calibration https://3dprintbeginner.com/flow-rate-calibration/
 - [ ] Possible to verify configs before uploading?
 - [ ] Hidden macros
+- [ ] Bed mesh macro
+- [ ] Bed mesh save profiles for PEI and PETG

@@ -49,6 +49,25 @@ runout_gcode: PAUSE
 insert_gcode: RESUME
 ```
 
+### Bed Mesh
+
+![](images/bedmesh1.png)
+
+Run this command to run a bed mesh calibration, then save it for future use
+
+
+```
+BED_MESH_CALIBRATE PROFILE=PEI
+SAVE_CONFIG
+```
+
+The mesh will then be saved to the printer.cfg. **Be sure to copy it back to this repo or changes will be lost**
+
+Open the printer.cfg in fluidd/mainsail and look for lines that start with:
+```
+#*# <---------------------- SAVE_CONFIG ---------------------->
+#*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
+```
 
 ### Setup
 
