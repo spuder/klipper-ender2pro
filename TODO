@@ -25,7 +25,7 @@
 - [ ] Raspbery pi HAT for mosfets
 - [x] Turn off LED / Motors after idle for x minutes
 - [x] Print klipper calibration cube
-- [ ] Estep calibration https://youtu.be/rp3r921DBGI
+- [x] Estep calibration https://youtu.be/rp3r921DBGI
 - [ ] flow calibration https://3dprintbeginner.com/flow-rate-calibration/
 - [ ] Possible to verify configs before uploading?
 - [ ] Hidden macros
@@ -34,3 +34,4 @@
 - [ ] 3d print accelerometer holder
 - [ ] Raspberry pi no USB cable (serial internal)
 - [ ] fillament run out sensor mount
+- [x] turn off bltouch light when idle

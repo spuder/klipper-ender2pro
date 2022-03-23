@@ -10,8 +10,8 @@ My clipper configuration for the ender 2 pro
 
 ## Tuning
 
-https://teachingtechyt.github.io/calibration.html
-
+- https://teachingtechyt.github.io/calibration.html
+- https://github.com/AndrewEllis93/Print-Tuning-Guide
 ### BLTOUCH
 
 A BLTouch is installed.
