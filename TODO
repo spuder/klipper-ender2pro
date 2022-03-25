@@ -35,3 +35,5 @@
 - [ ] Raspberry pi no USB cable (serial internal)
 - [ ] fillament run out sensor mount
 - [x] turn off bltouch light when idle
+- [ ] Fix directory does not exisst (/home/pi/klipper_config/macros/.~tmp~)
+- [ ] Dark Mode macro
