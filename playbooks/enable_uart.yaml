@@ -1,0 +1,29 @@
+# https://www.circuits.dk/setup-raspberry-pi-3-gpio-uart/#:~:text=To%20enable%20it%20you%20need,back%20in%20the%20Device%20Tree.
+
+- name: Enable UART
+  hosts: ender2pro
+  remote_user: root
+  gather_facts: no
+
+  tasks:
+  #TODO: Fix  fatal: [fluiddpi.local]: FAILED! => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3"}, "changed": false, "checksum": "d03fbb919daf6f8ba0066b85ee70e3697a140238", "msg": "Destination /boot not writable"}
+  - name: Manage /boot/config.txt
+    ansible.builtin.copy:
+      src: files/boot_config.txt
+      dest: /boot/config.txt
+      owner: root
+      group: root
+    register: boot_config
+
+  # This assumes Rasperry Pi 3 or newer. (Klipper likely won't work with anything older)
+  - name: disable gtty
+    ansible.builtin.service:
+      name: serial-getty@ttyS0.service
+      state: running
+      enabled: yes
+
+  # - name: Reboot system if /boot/config.txt changed
+  #   ansible.builtin.shell:
+  #     - reboot
+  #   when:
+  #   - boot_config.changed

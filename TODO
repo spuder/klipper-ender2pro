@@ -37,3 +37,4 @@
 - [x] turn off bltouch light when idle
 - [ ] Fix directory does not exisst (/home/pi/klipper_config/macros/.~tmp~)
 - [ ] Dark Mode macro
+- [ ] Cancel print should move Z axis up
