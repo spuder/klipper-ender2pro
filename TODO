@@ -27,12 +27,12 @@
 - [x] Print klipper calibration cube
 - [x] Estep calibration https://youtu.be/rp3r921DBGI
 - [ ] flow calibration https://3dprintbeginner.com/flow-rate-calibration/
-- [ ] Possible to verify configs before uploading?
+- [x] Possible to verify configs before uploading?
 - [ ] Hidden macros
 - [ ] Bed mesh macro
 - [ ] Bed mesh save profiles for PEI and PETG
 - [ ] 3d print accelerometer holder
-- [ ] Raspberry pi no USB cable (serial internal)
+- [x] Raspberry pi no USB cable (serial internal)
 - [ ] fillament run out sensor mount
 - [x] turn off bltouch light when idle
 - [ ] Fix directory does not exisst (/home/pi/klipper_config/macros/.~tmp~)
