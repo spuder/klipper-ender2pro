@@ -8,5 +8,7 @@ moonraker:
 webcam:
 	# ansible-playbook -i inventory playbooks/playbook.yaml --ask-pass -c paramiko
 	ansible-playbook -i inventory playbooks/webcam_config.yaml
+numpy:
+	ansible-playbook -i inventory playbooks/numpy.yaml --become --ask-become-pass
 all:
 	ansible-playbook -i inventory playbooks/all.yaml

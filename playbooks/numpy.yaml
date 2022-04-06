@@ -1,0 +1,36 @@
+---
+# https://www.klipper3d.org/Measuring_Resonances.html
+- name: all
+  hosts: ender2pro
+  remote_user: root
+  gather_facts: no
+
+  tasks:
+  - name: pip install numpy
+    pip:
+      name: numpy
+      state: present
+      virtualenv: "/home/pi/klippy-env"
+
+  # Install python3-numpy and python3-numpy python3-matplotlib with apt
+  - name: apt install python3-numpy python3-matplotlib
+    package:
+      name: 
+      - python3-numpy 
+      - python3-matplotlib
+      state: present
+  
+  - name: Get SPI status
+    shell: "raspi-config nonint get_spi"
+    register: spi_status
+    changed_when: False
+
+  - name: Print SPI status
+    debug:
+      msg: "SPI status is: {{ spi_status.stdout }}"
+      
+  # TODO: this will require a reboot
+  # https://github.com/giuaig/ansible-raspi-config/blob/master/raspi-config.yml
+  - name: Enable SPI
+    shell: "raspi-config nonint do_spi 0"
+    when: (spi_status.stdout != '0')
