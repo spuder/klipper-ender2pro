@@ -8,6 +8,20 @@ My clipper configuration for the ender 2 pro
 - Ender 2 Pro (Purchased December 2021)
 - Creality Silent board v4.2.3
 
+
+## Mods
+
+- [Raspberry Pi Case](https://github.com/spuder/ender2pro-raspberrypi)
+- Mosfets on Fans
+- [LED Bar](https://github.com/spuder/ender2pro-led-bracket)
+- [Run out Sensor](https://www.amazon.com/gp/product/B08QJDP36R/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1)
+- 12v Regulators on fans
+- [BlTouch](https://github.com/spuder/ender2pro-bltouch)
+
+![](images/raspberrypi.png)
+
+(See [RaspberryPi.fzz](./RaspberryPi.fzz) for schematic)
+
 ## Tuning
 
 - https://teachingtechyt.github.io/calibration.html

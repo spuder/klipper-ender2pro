@@ -37,3 +37,7 @@
 - [x] turn off bltouch light when idle
 - [ ] Fix directory does not exisst (/home/pi/klipper_config/macros/.~tmp~)
 - [ ] Dark Mode macro
+- [ ] Retract fillament 5mm after print
+- [ ] Retract fillament 5mm macro
+- [ ] Put gui settings in version control
+- [ ] Raspberry pi power off button
