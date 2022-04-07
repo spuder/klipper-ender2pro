@@ -2,6 +2,7 @@
 
 My clipper configuration for the ender 2 pro
 
+[http://ender2pro.local/](http://ender2pro.local/)
 
 ## Hardware
 
@@ -26,6 +27,39 @@ My clipper configuration for the ender 2 pro
 
 - https://teachingtechyt.github.io/calibration.html
 - https://github.com/AndrewEllis93/Print-Tuning-Guide
+
+
+### Input Shaper
+
+Input shaper tools are installed with `playbooks/input_shaper.yaml`. The playbook can be called with the makefile shortcut `make input_shaper`
+
+Files are copied from the host back to this repo
+
+![](./data/ender2pro.local/tmp/shaper_calibrate_x.png)
+![](./data/ender2pro.local/tmp/shaper_calibrate_y.png)
+
+Recomended shaper settings are printed out with ansible
+
+```
+TASK [Print Calibrate Y] **********************************************************************************************************************
+ok: [ender2pro.local] => {
+    "msg": [
+        "Fitted shaper 'zv' frequency = 103.0 Hz (vibrations = 19.0%, smoothing ~= 0.020)",
+        "To avoid too much smoothing with 'zv', suggested max_accel <= 41300 mm/sec^2",
+        "Fitted shaper 'mzv' frequency = 62.8 Hz (vibrations = 4.9%, smoothing ~= 0.052)",
+        "To avoid too much smoothing with 'mzv', suggested max_accel <= 11600 mm/sec^2",
+        "Fitted shaper 'ei' frequency = 88.4 Hz (vibrations = 6.1%, smoothing ~= 0.042)",
+        "To avoid too much smoothing with 'ei', suggested max_accel <= 14600 mm/sec^2",
+        "Fitted shaper '2hump_ei' frequency = 78.2 Hz (vibrations = 0.9%, smoothing ~= 0.088)",
+        "To avoid too much smoothing with '2hump_ei', suggested max_accel <= 6800 mm/sec^2",
+        "Fitted shaper '3hump_ei' frequency = 72.4 Hz (vibrations = 0.0%, smoothing ~= 0.156)",
+        "To avoid too much smoothing with '3hump_ei', suggested max_accel <= 3800 mm/sec^2",
+        "Recommended shaper is 2hump_ei @ 78.2 Hz"
+    ]
+}
+```
+
+
 ### BLTOUCH
 
 A BLTouch is installed.

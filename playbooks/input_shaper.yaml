@@ -1,0 +1,91 @@
+---
+# https://www.klipper3d.org/Measuring_Resonances.html
+- name: all
+  hosts: ender2pro
+  remote_user: root
+  gather_facts: no
+
+  tasks:
+  - name: pip install numpy
+    pip:
+      name: numpy
+      state: present
+      virtualenv: "/home/pi/klippy-env"
+
+  # Install python3-numpy and python3-numpy python3-matplotlib with apt
+  - name: apt install python3-numpy python3-matplotlib
+    package:
+      name: 
+      - python3-numpy 
+      - python3-matplotlib
+      state: present
+  
+  - name: Get SPI status
+    shell: "raspi-config nonint get_spi"
+    register: spi_status
+    changed_when: False
+
+  - name: Print SPI status
+    debug:
+      msg: "SPI status is: {{ spi_status.stdout }}"
+      
+  # TODO: this will require a reboot
+  # https://github.com/giuaig/ansible-raspi-config/blob/master/raspi-config.yml
+  - name: Enable SPI
+    shell: "raspi-config nonint do_spi 0"
+    when: (spi_status.stdout != '0')
+
+
+### Copy X CSV files back to playbook
+
+  - name: Check for x CSV Files
+    shell: "find /tmp/resonances_x_*.csv -printf '.' | wc -c "
+    register: csv_files
+    changed_when: False
+
+  - name: Print x CSV Files
+    debug:
+      msg: "csv_files: {{ csv_files.stdout }}"
+
+  - name: Calibrate x Axis
+    shell: "/home/pi/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png"
+    changed_when: csv_files.stdout != 0
+    register: calibrate_x
+
+  - name: Print Calibrate x
+    debug:
+      msg: "{{ calibrate_x.stdout_lines }}"
+
+  - name: Copy /tmp/shaper_calibrate_x.png to localhost
+    ansible.builtin.fetch:
+      src: /tmp/shaper_calibrate_x.png
+      dest: ../data
+      when: (test -f /tmp/shaper_calibrate_x.png).stdout == 0
+
+
+
+### Copy X CSV files back to playbook
+
+  - name: Check for Y CSV Files
+    shell: "find /tmp/resonances_y_*.csv -printf '.' | wc -c "
+    register: csv_files
+    changed_when: False
+
+  - name: Print Y CSV Files
+    debug:
+      msg: "csv_files: {{ csv_files.stdout_lines }}"
+
+  - name: Calibrate Y Axis
+    shell: "/home/pi/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png"
+    changed_when: csv_files.stdout != 0
+    register: calibrate_y
+
+  - name: Print Calibrate Y
+    debug:
+      msg: "{{ calibrate_y.stdout_lines }}"
+
+  - name: Copy /tmp/shaper_calibrate_y.png to localhost
+    ansible.builtin.fetch:
+      src: /tmp/shaper_calibrate_y.png
+      dest: ../data
+      when: (test -f /tmp/shaper_calibrate_y.png).stdout == 0
