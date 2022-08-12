@@ -159,8 +159,10 @@ make
 To setup the OS
 
 1. Download FluidPI: https://github.com/fluidd-core/FluiddPI
-2. Use Ether to create sd card
-3. Use ansible/make to configure
+2. Download Raspbery Pi imageer https://www.raspberrypi.com/software/
+3. Press cmd+shift+x to get advanced settings.
+4. Change the hostname to `ender2pro` (or whatever you want. It must match ansible inventory file)
+5. Use ansible/make to configure
 
 ## Ansible
 
