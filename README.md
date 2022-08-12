@@ -154,6 +154,14 @@ make
 - https://3dprintbeginner.com/flow-rate-calibration/
 
 
+## OS setup
+
+To setup the OS
+
+1. Download FluidPI: https://github.com/fluidd-core/FluiddPI
+2. Use Ether to create sd card
+3. Use ansible/make to configure
+
 ## Ansible
 
 klipper config file is located at `/home/pi/klipper_config/printer.cfg`
