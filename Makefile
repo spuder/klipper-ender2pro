@@ -4,7 +4,6 @@ klipper:
 moonraker:
 	# ansible-playbook -i inventory playbooks/playbook.yaml --ask-pass -c paramiko
 	ansible-playbook -i inventory playbooks/moonraker_config.yaml
-
 webcam:
 	# ansible-playbook -i inventory playbooks/playbook.yaml --ask-pass -c paramiko
 	ansible-playbook -i inventory playbooks/webcam_config.yaml

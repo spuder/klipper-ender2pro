@@ -166,7 +166,7 @@ To setup the OS
 
 ## Ansible
 
-klipper config file is located at `/home/pi/klipper_config/printer.cfg`
+klipper config file is located at `/home/{{ user }}/klipper_config/printer.cfg`
 This repo contains an ansible playbook that will copy the local printer.cfg to the printer and restart the klipper service if it changes. 
 
 To use
@@ -174,10 +174,20 @@ To use
 2. Run the following ansible commands (Or use the make shortcuts)
 
 
+Setup ssh keys
+```
+ssh-copy-id -i ~/.ssh/id_rsa.pub pi@ender2pro.local
+```
+
+
 ```
 ansible-playbook --check playbook.yaml
 ansible-playbook -i inventory playbook.yaml -c paramiko --ask-pass
 ```
+
+For best results, use the default user 'pi'. If you change it, you will need to manually update all the init scripts since they are hard coded to `/home/pi/*`
+
+![](./images/pi_user.png)
 
 ```
 make klipper    # run just the klipper playbook (default)
@@ -186,3 +196,17 @@ make webcam     # run just the webcam playbook
 make all        # run all playbooks
 make            # runs default (in this case klipper)
 ```
+
+Then navigate to [http://ender2pro.local/#/](http://ender2pro.local/#/) and enjoy
+
+
+## UART vs USB
+
+If using the UART cable instead of the USB cable, you need to run additional steps
+
+https://github.com/Klipper3d/klipper/blob/master/docs/RPi_microcontroller.md#install-the-rc-script
+
+1. Recompile klipper firmware to use UART not USB
+2. Install the klipper_mcu init script
+3. run `make flash` and select linux process
+4. Restart klipper
