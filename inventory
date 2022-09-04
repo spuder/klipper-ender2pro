@@ -1,2 +1,2 @@
 [ender2pro]
-ender2pro.local ansible_user=pi 
+ender2pro.local ansible_user=pi
