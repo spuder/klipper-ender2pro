@@ -13,6 +13,14 @@
       group: pi
     register: moonraker_config
 
+# https://moonraker.readthedocs.io/en/latest/installation/#policykit-permissions
+  # - name: Moonraker policy
+  #   environment:
+  #     DISABLE_SYSTEMCTL: "y"
+  #   shell: |
+  #     /home/pi/moonraker/scripts/set-policykit-rules.sh --disable-systemctl
+  #   remote_user: pi
+
   - name: Mookraker Service
     service:
       name: mookraker
